@@ -7,7 +7,7 @@
 <script language='javascript'
 	src='${pageContext.request.contextPath}/js/common/esl.js'></script>
 <script language='javascript'
-	src='${pageContext.request.contextPath}/js/jquery/jquery-1.10.2.min.js'></script>
+	src='${pageContext.request.contextPath}/js/jquery/jquery-1.8.3.min.js'></script>
 </head>
 <body>
 	<div id="main"
@@ -55,30 +55,43 @@
 				xAxis : [ {
 					type : 'category',
 					data : namearr,
+					axisLine:false,
+					splitLine:false
+					
 				} ],
 				yAxis : [ {
 					type : 'value',
 					splitArea : {
 						show : true
-					}
+					},
+					axisLine:false,
+					splitLine:false
 				} ],
 				series : [ {
 					name : '销售业绩',
 					type : 'bar',
+					barWidth: 40,
 					data : salearr,
-					itemStyle : {
-						normal : { // 系列级个性化，横向渐变填充
-							borderRadius : 5,
-							label : {
-								show : true,
-								textStyle : {
-									fontSize : '20',
-									fontFamily : '微软雅黑',
-									fontWeight : 'bold'
-								}
-							}
-						}
-					}
+					   itemStyle: {
+			                normal: {                   // 系列级个性化，横向渐变填充
+			                    borderRadius: 5,
+			                    color : (function(){
+			                        var zrColor = require('zrender/tool/color');
+			                        return zrColor.getLinearGradient(
+			                            0, 0, 1000, 0,
+			                            [[0, 'rgba(30,144,255,0.8)']]
+			                        )
+			                    })(),
+			                    label : {
+			                        show : true,
+			                        textStyle : {
+			                            fontSize : '20',
+			                            fontFamily : '微软雅黑',
+			                            fontWeight : 'bold'
+			                        }
+			                    }
+			                }
+			            }
 				} ]
 			});
 

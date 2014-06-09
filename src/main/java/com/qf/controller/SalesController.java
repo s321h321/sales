@@ -39,15 +39,15 @@ public class SalesController {
 			map.put("info", "业绩添加失败！！！");
 			logger.error(e);
 		}
-		return "/pages/sales/sales";
+		return "/pages/salesInfo";
 	}
 
 	@RequestMapping("/sales/info")
-	public String getSaleInfos(Integer month, ModelMap map) {
+	public String getAllSaleInfos(Integer month, ModelMap map) {
 		month = null == month ? 0 : month;
 		List<HashMap<String, String>> saleslist = salesService
 				.getAllSaleInfos(month);
-		map.put("data", JSONUtils.toJSONString(saleslist));
+		map.put("salesdata", JSONUtils.toJSONString(saleslist));
 		return "/pages/sales/sales";
 	}
 

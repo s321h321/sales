@@ -6,7 +6,7 @@
 </head>
 <body>
 	<script language="javascript">
-		window.location.href = "${pageContext.request.contextPath}/saleinfo/getdata.html";
+		window.location.href = "${pageContext.request.contextPath}/sales/info.html";
 	</script>
 </body>
 </html>

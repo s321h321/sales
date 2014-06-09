@@ -1,6 +1,5 @@
 package com.qf.controller;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alibaba.druid.support.json.JSONUtils;
 import com.qf.service.ISalesService;
+import com.qf.service.IUserService;
 
 @Controller
 public class SalesController {
@@ -20,26 +20,25 @@ public class SalesController {
 	public static Logger logger = Logger.getLogger(SalesController.class);
 	@Resource
 	private ISalesService salesService;
-
+	@Resource
+	private IUserService userS;
 	@RequestMapping("/sales")
 	public String getSaleInfos(ModelMap map) {
 		List<HashMap<String, String>> saleslist = salesService.getSaleInfos();
+		List<HashMap<String,String>> idandnames=userS.getUserIdAndNames(0);
 		map.put("salesInfo", JSONUtils.toJSONString(saleslist));
+		map.put("ids", JSONUtils.parse(JSONUtils.toJSONString(idandnames)));
 		return "/pages/salesInfo";
 	}
 
 	@RequestMapping("/sales/add")
-	public String addsale(int uid, int money, int ouid, Date saletime,
-			ModelMap map) {
+	public String addsale(Integer uid, Integer money, String saletime) {
 		try {
-			salesService.addsale(uid, money, ouid, saletime);
-			map.put("info", "业绩添加成功！！！");
+			salesService.addsale(uid, money, -1, saletime);
 		} catch (Exception e) {
-
-			map.put("info", "业绩添加失败！！！");
 			logger.error(e);
 		}
-		return "/pages/salesInfo";
+		return "redirect:/sales.html";
 	}
 
 	@RequestMapping("/sales/info")
@@ -50,5 +49,6 @@ public class SalesController {
 		map.put("salesdata", JSONUtils.toJSONString(saleslist));
 		return "/pages/sales/sales";
 	}
+
 
 }

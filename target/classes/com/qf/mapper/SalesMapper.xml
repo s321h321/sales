@@ -12,7 +12,7 @@
 	</select>
 	<insert id="addsale">
 		insert into
-		t_saleinfo(tu_user_id,ts_sale_money,ts_month,ts_source,ts_createtime,ts_operation_user_id,ts_sale_time)
+		t_saleinfo(ts_user_id,ts_sale_money,ts_month,ts_source,ts_createtime,ts_operation_user_id,ts_sale_time)
 		values(${uid},${money},${m},0,now(),${ouid},#{saletime})
 	</insert>
 	<select id="getAllSaleInfos" resultType="java.util.Map">

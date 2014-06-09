@@ -47,7 +47,7 @@
 		<url-pattern>*.html</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
-		<welcome-file>/pages/index.jsp</welcome-file>
+		<welcome-file>/pages/Login/login.jsp</welcome-file>
 	</welcome-file-list>
 	<!-- 配置session超时时间，单位分钟 -->
 	<session-config>

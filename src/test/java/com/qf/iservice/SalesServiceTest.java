@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.alibaba.druid.support.json.JSONUtils;
 import com.qf.service.ISalesService;
+import com.qf.service.IUserService;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -20,13 +21,17 @@ public class SalesServiceTest {
 
 	@Resource
 	private ISalesService saleService;
+	@Resource
+	private IUserService userservice;
 	@Test
 	public void login(){
-		List<HashMap<String,String>>salesMap=saleService.getAllSaleInfos(0);
-		
-		System.out.println(JSONUtils.parse(JSONUtils.toJSONString(salesMap)));
+//		List<HashMap<String,String>>salesMap=saleService.getAllSaleInfos(0);
+//		
+//		System.out.println(JSONUtils.parse(JSONUtils.toJSONString(salesMap)));
 //		System.out.println(JSONUtils.toJSONString(salesMap));
 //		int month = Calendar.getInstance().get(Calendar.MONTH)+1;
 //		System.out.println(month);
+		
+		System.out.println(userservice.getUserIdAndNames(0));
 	}
 }

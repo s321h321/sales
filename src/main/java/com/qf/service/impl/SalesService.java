@@ -27,7 +27,7 @@ public class SalesService implements ISalesService{
 		return saleDao.getSaleInfos(month);
 	}
 	@Override
-	public void addsale(int uid, int money,int operationuid,Date saletime) {
+	public void addsale(int uid, int money,int operationuid,String saletime) {
 		saleDao.addsale(uid, money, month, operationuid,saletime);
 		
 	}

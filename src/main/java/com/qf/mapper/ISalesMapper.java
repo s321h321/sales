@@ -21,7 +21,7 @@ public interface ISalesMapper {
 	 * @param operationuid 操作人
 	 */
 	public void addsale(@Param("uid")int uid,@Param("money")int money,
-			@Param("m")int month,@Param("ouid")int operationuid,@Param("saletime")Date saletime);
+			@Param("m")int month,@Param("ouid")int operationuid,@Param("saletime")String saletime);
 	/**
 	 * 
 	 * @param month 上月的月份

@@ -1,6 +1,5 @@
 package com.qf.service;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -21,7 +20,7 @@ public interface ISalesService {
 	 * @param month 月份
 	 * @param operationuid 操作人
 	 */
-	public void addsale(int uid,int money,int operationuid,Date saletime);
+	public void addsale(int uid,int money,int operationuid,String saletime);
 	
 	/**
 	 * 

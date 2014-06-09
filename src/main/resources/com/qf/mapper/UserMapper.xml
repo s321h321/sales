@@ -6,4 +6,17 @@
 		tu_is_deletetime is null
 		and tu_username=#{uname} and tu_password=#{password}
 	</select>
+	<select id="getUserIdAndNames" resultType="java.util.Map">
+	select tu_id id,tu_name name from t_user 
+	<if test="position != 0">
+	where tu_position_id=${position}
+	</if>
+	</select>
+	<insert id="adduser">
+	insert into t_user(tu_name,tu_position_id,tu_entry_time,tu_username,tu_password)
+	values(#{name},1,now(),#{username},#{password})
+	</insert>
+	<select id="getUserId" resultType="Integer">
+	select tu_id from t_user where tu_username=#{username};
+	</select>
 </mapper>

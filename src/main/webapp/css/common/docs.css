@@ -701,7 +701,7 @@ form.bs-docs-example {
     margin-bottom:20px;
 }
 /*Dialog*/
-#dialog_link,#modal_link {
+#dialog_link,#modal_link,#addsales_link {
     padding: .4em 1em .4em 20px;
     text-decoration: none;
     position: relative;

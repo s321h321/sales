@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.druid.support.json.JSONUtils;
 import com.qf.service.ISalesService;
@@ -30,6 +31,11 @@ public class SalesController {
 		map.put("ids", JSONUtils.parse(JSONUtils.toJSONString(idandnames)));
 		return "/pages/salesInfo";
 	}
+	@RequestMapping("/getsales")
+	public @ResponseBody String getSaleInfos() {
+		List<HashMap<String, String>> saleslist = salesService.getSaleInfos();
+		return JSONUtils.toJSONString(saleslist);
+	}
 
 	@RequestMapping("/sales/add")
 	public String addsale(Integer uid, Integer money, String saletime) {
@@ -38,7 +44,7 @@ public class SalesController {
 		} catch (Exception e) {
 			logger.error(e);
 		}
-		return "redirect:/sales.html";
+		return "redirect:/demos.html";
 	}
 
 	@RequestMapping("/sales/info")

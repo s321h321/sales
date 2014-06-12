@@ -2,7 +2,6 @@ package com.qf.service;
 
 import java.util.HashMap;
 import java.util.List;
-
 public interface IUserService {
 
 	public boolean IsLogin(String username,String password);

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.qf.service.ISalesService;
 import com.qf.service.IUserService;
@@ -39,14 +40,12 @@ public class UserController {
 	}
 
 	@RequestMapping("/adduser")
-	public String adduser(String name, String username, String password) {
+	public @ResponseBody String adduser(String name, String username, String password) {
 		boolean b = uService.adduser(name, username, password);
 		if (b) {
-			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-			sservice.addsale(uService.getUserId(username), 0, -1,
-					format.format(new Date()));
+			return "添加成功！！！";
 		}
-		return "redirect:/sales.html";
+		return "添加失败！！！";
 	}
 	// @ResponseBody
 	// @RequestMapping("/useridinfo")

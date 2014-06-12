@@ -8,9 +8,11 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.qf.mapper.ISalesMapper;
 import com.qf.service.ISalesService;
+@Transactional
 @Service
 public class SalesService implements ISalesService{
 

@@ -37,12 +37,12 @@ public class UserController {
 				return "redirect:/sales.html";
 			}
 		} else {
-			String uname=null==session.getAttribute("user")?"":session.getAttribute("user").toString();
-			if (uname.length()>4&&uname.equals("caiyanting")) {
+			//String uname=null==session.getAttribute("user")?"":session.getAttribute("user").toString();
+			//if (uname.length()>4&&uname.equals("caiyanting")) {
 				return "/pages/Login/login";
-			}else{
-				return "redirect:/sales.html";
-			}
+			//}else{
+			//return "redirect:/sales.html";
+			//}
 		}
 	}
 

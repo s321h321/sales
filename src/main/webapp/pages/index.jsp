@@ -7,7 +7,7 @@
 	href="${pageContext.request.contextPath}/css/common/popModal.min.css" />
 <script language='javascript'
 	src='${pageContext.request.contextPath}/js/common/popModal.js'></script>
-	<script language='javascript'
+<script language='javascript'
 	src='${pageContext.request.contextPath}/js/jquery/jquery-1.11.1.min.js'></script>
 </head>
 <body>

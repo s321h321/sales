@@ -93,7 +93,7 @@
                                 echarts: '${pageContext.request.contextPath}/js/common/echarts'
                             }
                         });
-                        require(['echarts', 'echarts/chart/bar', ], function(ec){
+                        require(['echarts', 'echarts/chart/bar' ], function(ec){
                             var myChart = ec.init(document.getElementById('main'));
                             myChart.setOption({
                                 tooltip: {

@@ -8,4 +8,5 @@ public interface IUserService {
 	public List<HashMap<String,String>>getUserIdAndNames(Integer position);
 	public boolean adduser(String name,String username,String password);
 	public int getUserId(String username);
+	public List<HashMap<String,String>>getAllusers();
 }

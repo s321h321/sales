@@ -1,5 +1,4 @@
-$(document).ready(
-				function() {
+$(document).ready(function() {
 					$("#modal_link").click(
 							function() {
 								$('#adduser').dialog('open');
@@ -80,7 +79,7 @@ $(document).ready(
 					function showsales(namearr, salearr) {
 						require.config({
 							paths : {
-								echarts : path+'/js/common/echarts'
+								echarts : path + '/js/common/echarts'
 							}
 						});
 						require(
@@ -171,7 +170,7 @@ $(document).ready(
 						$.ajax({
 							cache : "true",
 							type : "POST",
-							url : path+"/getsales.html",
+							url : path + "/getsales.html",
 							async : false,
 							dataType : "json",
 							error : function(request) {
@@ -197,7 +196,7 @@ $(document).ready(
 								}
 								$.ajax({
 									type : "POST",
-									url : path+"/getIdAndNames.html",
+									url : path + "/getIdAndNames.html",
 									data : $('#addsales').serialize(),
 									async : false,
 									dataType : "json",
@@ -220,7 +219,7 @@ $(document).ready(
 					$("#btsave").click(function() {
 						$.ajax({
 							type : "POST",
-							url : path+"/adduser.html",
+							url : path + "/adduser.html",
 							data : $('#addusers').serialize(),
 							async : false,
 							dataType : "json",

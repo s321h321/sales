@@ -3,12 +3,13 @@ package com.qf.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
+
 import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.qf.mapper.IUserMapper;
-
 import com.qf.service.IUserService;
 @Transactional
 @Service
@@ -38,6 +39,13 @@ public class UserService implements IUserService {
 	@Override
 	public boolean IsLogin(String username, String password) {
 		return userDao.isLogin(username, password) > 0;
+	}
+
+
+	@Override
+	public List<HashMap<String, String>> getAllusers() {
+		// TODO Auto-generated method stub
+		return userDao.getAllusers();
 	}
 
 }

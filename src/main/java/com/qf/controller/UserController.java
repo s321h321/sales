@@ -1,12 +1,16 @@
 package com.qf.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.alibaba.druid.support.json.JSONUtils;
 import com.qf.service.ISalesService;
 import com.qf.service.IUserService;
@@ -74,5 +78,13 @@ public class UserController {
 	public @ResponseBody
 	String getUserIdAndNames() {
 		return JSONUtils.toJSONString(uService.getUserIdAndNames(1));
+	}
+	@RequestMapping("/getAllusers")
+	public @ResponseBody String getAllUsers(){
+		ArrayList<String> nameslist=new ArrayList<String>();
+		nameslist.add("姓名");
+		nameslist.add("职位");
+		nameslist.add("入职日期");
+		return JSONUtils.toJSONString(nameslist)+","+JSONUtils.toJSONString(uService.getAllusers());
 	}
 }

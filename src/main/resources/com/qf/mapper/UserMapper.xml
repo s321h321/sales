@@ -19,4 +19,8 @@
 	<select id="getUserId" resultType="Integer">
 	select tu_id from t_user where tu_username=#{username};
 	</select>
+	<select id="getAllusers" resultType="java.util.Map">
+	select tu_name as '姓名',tp_name as '职位',date(tu_entry_time) as '入职日期'from t_user left join t_position
+	on tp_id=tu_position_id
+	</select>
 </mapper>

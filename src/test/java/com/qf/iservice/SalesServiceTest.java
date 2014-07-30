@@ -1,5 +1,6 @@
 package com.qf.iservice;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -25,13 +26,11 @@ public class SalesServiceTest {
 	private IUserService userservice;
 	@Test
 	public void login(){
-//		List<HashMap<String,String>>salesMap=saleService.getAllSaleInfos(0);
-//		
-//		System.out.println(JSONUtils.parse(JSONUtils.toJSONString(salesMap)));
-//		System.out.println(JSONUtils.toJSONString(salesMap));
-//		int month = Calendar.getInstance().get(Calendar.MONTH)+1;
-//		System.out.println(month);
-		
+		List<HashMap<String,String>>salesMap=saleService.getAllSaleInfos(0);
+		System.out.println(JSONUtils.parse(JSONUtils.toJSONString(salesMap)));
+		System.out.println(JSONUtils.toJSONString(salesMap));
+		int month = Calendar.getInstance().get(Calendar.MONTH)+1;
+		System.out.println(month);
 		System.out.println(userservice.getUserIdAndNames(0));
 	}
 }
